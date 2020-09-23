@@ -1,20 +1,20 @@
 import * as actionTypes from '../actions/actions';
 
 const initialState = {
-    counter: 0
+    login: false
 }
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.INCREMENT:
+        case actionTypes.LOGIN:
             return {
                 ...state,
-                counter: state.counter + 1
-            };
-        case actionTypes.DECREMENT:
+                login: true
+            }
+        case actionTypes.LOGOUT:
             return {
                 ...state,
-                counter: state.counter - 1
+                login: false
             }
         default:
             return state

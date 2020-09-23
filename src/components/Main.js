@@ -1,14 +1,16 @@
 import React from 'react';
-import * as actionTypes from '../reducers/actions';
-import { Container, Button, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import * as actionTypes from '../actions/actions';
+/* import { Container, Button, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; */
 import { useSelector, useDispatch } from 'react-redux';
 
-const Main = () => {
-    const counter = useSelector((state) => state.counter)
-    const dispatch = useDispatch();
+import './Main.css';
 
-    console.log(counter);
+import Aux from '../hoc/Auxilliary';
+
+const Main = () => {
+    const counter = useSelector((state) => state.counter.counter);
+    const dispatch = useDispatch();
 
     const increment = () => {
         dispatch({ type: actionTypes.INCREMENT })
@@ -19,17 +21,15 @@ const Main = () => {
     }
 
     return ( 
-        <Container>
-            <Row>
-                <Col><h1>{counter}</h1></Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Button onClick={increment} size="lg">+</Button>
-                    <Button onClick={decrement} size="lg">-</Button>
-                </Col>
-            </Row>
-        </Container>
+        <Aux>
+            <div className='wrapper'>
+                <h1>{counter}</h1>
+                <div className='buttonDiv'>
+                    <button onClick={increment} size="lg">+</button>
+                    <button onClick={decrement} size="lg">-</button>
+                </div> 
+            </div>
+        </Aux>
      );
 }
  
