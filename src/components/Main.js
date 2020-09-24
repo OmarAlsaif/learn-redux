@@ -1,11 +1,6 @@
 import React from 'react';
 import * as actionTypes from '../actions/actions';
-/* import { Container, Button, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; */
 import { useSelector, useDispatch } from 'react-redux';
-
-import './Main.css';
-
 import Aux from '../hoc/Auxilliary';
 
 const Main = () => {
