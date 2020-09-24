@@ -1,10 +1,10 @@
 import * as actionTypes from '../actions/actions';
 
 const initialState = {
-    login: false
+    login: true
 }
 
-const reducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action) => {
     switch(action.type) {
         case actionTypes.LOGIN:
             return {
@@ -21,4 +21,4 @@ const reducer = (state = initialState, action) => {
     }
 }
 
-export default reducer;
+export default loginReducer;

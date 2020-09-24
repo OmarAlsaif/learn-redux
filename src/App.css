@@ -5,7 +5,34 @@
     margin: 10px;
 }
 
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.links {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
 .buttonDiv {
     display: flex;
     flex-direction: row;
+}
+
+.todoDiv {
+    width: 200px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.deleteTodoBtn {
+    height: 50%;
+    margin: 10px;
+    text-decoration: l;
 }

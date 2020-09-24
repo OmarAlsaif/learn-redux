@@ -3,7 +3,7 @@ import './App.css';
 import Main from './components/Main';
 import Second from './components/Second';
 import Third from './components/Third';
-import Hidden from './components/Hidden';
+import Todos from './components/Todos';
 import Aux from './hoc/Auxilliary';
 import * as actionTypes from './actions/actions';
 
@@ -35,12 +35,16 @@ function App() {
   return (
     <Aux>
       <Router>
-        <div className="wrapper">
-          {!login ? <button onClick={loginHandler}>Log in</button> : <button onClick={logoutHandler}>Log out</button>}
-          <Link to='/'>Main</Link>
-          <Link to='/second'>Second</Link>
-          <Link to='/third'>Third</Link>
-          {login && <Link to='/hidden'>Hidden</Link> }
+        <div className="head">
+          <div className="links">
+            <Link to='/'>Main</Link>
+            <Link to='/second'>Second</Link>
+            <Link to='/third'>Third</Link>
+            {login && <Link to='/todos'>Todos</Link> }
+          </div>
+          <div>
+            {!login ? <button onClick={loginHandler}>Log in</button> : <button onClick={logoutHandler}>Log out</button>}
+          </div>
         </div>
       
         <Switch>
@@ -53,8 +57,8 @@ function App() {
           <Route path="/third">
             <Third />
           </Route>
-          <Route path="/hidden">
-            <Hidden />
+          <Route path="/todos">
+            <Todos />
           </Route>
         </Switch>
       </Router>
