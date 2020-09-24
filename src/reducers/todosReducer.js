@@ -12,6 +12,9 @@ const todoReducer = (state = initialState, action) => {
                     id: uuidv4(),
                     todo: payload.todo
             }]
+        case actionTypes.REMOVE_TODO:
+            const copyState = [...state];
+            return copyState.filter(v => v.id !== payload.id)
         default:
             return state
     }

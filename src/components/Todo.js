@@ -1,23 +1,36 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import * as actionTypes from '../actions/actions';
 
 import Aux from '../hoc/Auxilliary';
 
 const Todo = (props) => {
-    const [todoState, setTodoState] = useState('none');
+    const dispatch = useDispatch();
+    const [todoState, setTodoState] = useState('');
 
     const completeTodoHandler = () => {
-        if (todoState === 'none') {
-            setTodoState('line-through')
+        if (todoState === '') {
+            setTodoState('finishedTodo')
         } else {
-            setTodoState('none')
+            setTodoState('')
         }
+    }
+
+    const removeTodoHandler = () => {
+        dispatch({
+            type: actionTypes.REMOVE_TODO,
+            payload: {
+                id: props.id
+            }
+        })
     }
 
     return ( 
         <Aux>
             <div className="todoDiv">
-                <h2 onClick={completeTodoHandler} style={{textDecoration: todoState}}>{props.todoData}</h2>
-                <button className="deleteTodoBtn" >x</button>
+                <h2 onClick={completeTodoHandler} className={todoState}>{props.data}</h2>
+                <button className="deleteTodoBtn" onClick={removeTodoHandler} >x</button>
             </div>
         </Aux>
      );

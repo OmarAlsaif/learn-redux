@@ -10,7 +10,7 @@ const TodoList = () => {
     console.log(todos);
     return ( 
         <Aux>
-            {todos.length !== 0 ? todos.map(todo => <Todo key={todo.id} todoData={todo.todo} todoId={todo.id} />) : <h1>Add a todo</h1>}
+            {todos.length !== 0 ? todos.map(todo => <Todo key={todo.id} data={todo.todo} id={todo.id} />) : <h1>Add a todo</h1>}
         </Aux>
      );
 }
